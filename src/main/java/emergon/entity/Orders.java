@@ -7,7 +7,6 @@ package emergon.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -43,6 +41,7 @@ public class Orders implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Column(name = "order_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate orderDate;
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @ManyToOne
