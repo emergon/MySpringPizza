@@ -14,22 +14,22 @@
     </head>
     <body>
         <h1>You ordered a nice pizza</h1>
-        <strong>Size:</strong> ${size}
+        <strong>Size:</strong> ${paragelia.pizza.size.sname}
         <br/>
         <br/>
         <strong>Ingredients:</strong>
         <ul>
-            <c:forEach items="${ingredients}" var="ingr">
-                <li>${ingr}</li>
+            <c:forEach items="${paragelia.pizza.ingredients}" var="ingr">
+                <li>${ingr.iname}</li>
                 </c:forEach>
         </ul>
-        <strong>Payment Method:</strong> ${payment}
+        <strong>Payment Method:</strong> ${paragelia.payment.pname}
         <br/>
-        <strong>Your name:</strong>${name}
+        <strong>Your name:</strong>${paragelia.customer.cname}
         <br/>
-        <strong>Your age:</strong> ${age}
+        <strong>Your age:</strong> ${paragelia.customer.cage}
         <br/>
-        <strong>Order date:</strong> ${order_date}
+        <strong>Order date:</strong> ${paragelia.orderDate}
         <h3>Thank you for your order</h3>
     </body>
 </html>

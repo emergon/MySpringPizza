@@ -23,7 +23,7 @@
             <p><strong>Choose ingredients:</strong></p>
             <%--<form:checkboxes path="pizza.ingredients" items="${ingredients}" itemLabel="iname" itemValue="id" />--%>
             <c:forEach items="${ingredients}" var="ingredient">
-                <input type="checkbox" name="ingredients" value="${ingredient}">${ingredient.iname}<br/>
+                <input type="checkbox" name="pizza.ingredients" value="${ingredient.id}">${ingredient.iname}<br/>
             </c:forEach>
             <form:errors path="pizza.ingredients" />
             <p><strong>Choose payment method:</strong></p>
