@@ -5,12 +5,16 @@
  */
 package emergon.controller;
 
+import emergon.entity.Sizes;
+import emergon.service.SizeService;
 import java.time.LocalDate;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,8 +23,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/order")
 public class OrderController {
 
+    @Autowired
+    SizeService sizeService;
+    
+    @ModelAttribute("sizes")
+    public List<Sizes> getSizes(){
+        return sizeService.findAll();
+    }
+    
     @GetMapping()
-    public String showOrderForm(){
+    public String showOrderForm(Model model){
         return "orderForm";
     }
     
