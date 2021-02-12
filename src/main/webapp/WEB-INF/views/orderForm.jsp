@@ -18,7 +18,7 @@
         <form:form action="order/process" method="POST" modelAttribute="paragelia">
             
             <p><strong>Choose bread size:</strong></p>
-            <form:radiobuttons path="pizza.size" items="${sizes}" itemLabel="sname" itemValue="id" />
+            <form:radiobuttons path="pizza.size" items="${sizes}" itemLabel="sname" itemValue="id" element="li"/>
             
             <p><strong>Choose ingredients:</strong></p>
             <%--<form:checkboxes path="pizza.ingredients" items="${ingredients}" itemLabel="iname" itemValue="id" />--%>
@@ -30,7 +30,6 @@
             <form:select path="payment" items="${payments}" itemLabel="pname" itemValue="id"/>
             
             <br/>
-            
             <p><strong>Your details:</strong></p>
             Name: <form:input path="customer.cname"/>
             
