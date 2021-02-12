@@ -16,5 +16,7 @@ import java.util.List;
 public interface PaymentRepo {
     
     List<Payment> findAll();
+
+    public Payment findById(int id);
     
 }

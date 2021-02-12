@@ -17,4 +17,8 @@ public class PaymentRepoImpl extends HibernateUtil<Payment> implements PaymentRe
         return super.findAll("Payment.findAll");
     }
     
+    @Override
+    public Payment findById(int id) {
+        return super.findById("Payment.findById", id);
+    }
 }
