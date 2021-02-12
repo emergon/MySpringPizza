@@ -20,4 +20,11 @@ public class HibernateUtil<E> {
         List<E> list = query.getResultList();
         return list;
     }
+    
+    protected E findById(String namedQuery, int id){
+        Query query = getSession().createNamedQuery(namedQuery);
+        query.setParameter("id", id);
+        E e = (E) query.getSingleResult();
+        return e;
+    }
 }

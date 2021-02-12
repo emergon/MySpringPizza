@@ -16,5 +16,7 @@ import java.util.List;
 public interface SizesRepo {
     
     List<Sizes> findAll();
+
+    public Sizes findById(int id);
     
 }

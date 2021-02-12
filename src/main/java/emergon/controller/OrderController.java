@@ -17,6 +17,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/order")
-public class OrderController {
+public class OrderController{
 
     @Autowired
     SizeService sizeService;
@@ -58,6 +59,10 @@ public class OrderController {
             BindingResult result){//Binding result must come after the @Valid object
         
         if(result.hasErrors()){
+            List<ObjectError> errors = result.getAllErrors();
+            for(ObjectError e:errors){
+                System.out.println(">>>>>error===="+e);
+            }
             return "orderForm";
         }
         //save object in DB

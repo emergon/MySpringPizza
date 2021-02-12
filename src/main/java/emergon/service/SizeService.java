@@ -16,4 +16,6 @@ import java.util.List;
 public interface SizeService {
     
     List<Sizes> findAll();
+
+    public Sizes findById(int id);
 }
