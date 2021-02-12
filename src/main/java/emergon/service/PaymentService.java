@@ -8,14 +8,13 @@ package emergon.service;
 import emergon.entity.Payment;
 import java.util.List;
 
+
 /**
  *
  * @author user
  */
-public class PaymentService {
+public interface PaymentService {
 
-    public List<Payment> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    List<Payment> findAll();
     
 }

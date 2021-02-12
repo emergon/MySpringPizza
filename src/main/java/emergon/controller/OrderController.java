@@ -5,7 +5,12 @@
  */
 package emergon.controller;
 
+import emergon.entity.Ingredient;
+import emergon.entity.Orders;
+import emergon.entity.Payment;
 import emergon.entity.Sizes;
+import emergon.service.IngredientService;
+import emergon.service.PaymentService;
 import emergon.service.SizeService;
 import java.time.LocalDate;
 import java.util.List;
@@ -25,14 +30,28 @@ public class OrderController {
 
     @Autowired
     SizeService sizeService;
+    @Autowired
+    PaymentService paymentService;
+    @Autowired
+    IngredientService ingredientService;
     
     @ModelAttribute("sizes")
     public List<Sizes> getSizes(){
         return sizeService.findAll();
     }
     
+    @ModelAttribute("payments")
+    public List<Payment> getPayments(){
+        return paymentService.findAll();
+    }
+    
+    @ModelAttribute("ingredients")
+    public List<Ingredient> getIngredients(){
+        return ingredientService.findAll();
+    }
+    
     @GetMapping()
-    public String showOrderForm(Model model){
+    public String showOrderForm(@ModelAttribute("paragelia") Orders order){
         return "orderForm";
     }
     

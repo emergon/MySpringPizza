@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package emergon.service;
+package emergon.repo;
 
 import emergon.entity.Ingredient;
 import java.util.List;
@@ -12,6 +12,9 @@ import java.util.List;
  *
  * @author user
  */
-public interface IngredientService {
+// SOLID principle
+public interface IngredientRepo {
+    
     List<Ingredient> findAll();
+    
 }

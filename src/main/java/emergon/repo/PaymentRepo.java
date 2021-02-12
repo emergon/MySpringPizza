@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package emergon.service;
+package emergon.repo;
 
-import emergon.entity.Ingredient;
+import emergon.entity.Payment;
 import java.util.List;
 
 /**
  *
  * @author user
  */
-public interface IngredientService {
-    List<Ingredient> findAll();
+// SOLID principle
+public interface PaymentRepo {
+    
+    List<Payment> findAll();
+    
 }

@@ -4,7 +4,9 @@
     Author     : user
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,32 +15,34 @@
     </head>
     <body>
         <h1>Choose your Pizza</h1>
-        <form action="order/process" method="POST">
+        <form:form action="order/process" method="POST" modelAttribute="paragelia">
+            
             <p><strong>Choose bread size:</strong></p>
-            <input type="radio" name="size" value="Large">Large<br/>
-            <input type="radio" name="size" value="Medium">Medium<br/>
-            <input type="radio" name="size" value="Small">Small<br/>
+            <form:radiobuttons path="pizza.size" items="${sizes}" itemLabel="sname" itemValue="id" />
+            
             <p><strong>Choose ingredients:</strong></p>
-            <input type="checkbox" name="ingredients" value="Mushroom">Potatoes<br/>
-            <input type="checkbox" name="ingredients" value="Tomatoes">Tomatoes<br/>
-            <input type="checkbox" name="ingredients" value="Sausage">Sausage<br/>
-            <input type="checkbox" name="ingredients" value="Cheese">Cheese<br/>
-            <input type="checkbox" name="ingredients" value="Ham">Ham<br/>
+            <%--<form:checkboxes path="pizza.ingredients" items="${ingredients}" itemLabel="iname" itemValue="id" />--%>
+            <c:forEach items="${ingredients}" var="ingredient">
+                <input type="checkbox" name="ingredients" value="${ingredient}">${ingredient.iname}<br/>
+            </c:forEach>
+                
             <p><strong>Choose payment method:</strong></p>
-            <select name="payment">
-                <option value="Credit Card">Credit Card</option>
-                <option value="Cash">Cash</option>
-            </select>
+            <form:select path="payment" items="${payments}" itemLabel="pname" itemValue="id"/>
+            
             <br/>
+            
             <p><strong>Your details:</strong></p>
-            Name: <input type="text" name="name"/>
+            Name: <form:input path="customer.cname"/>
+            
             <br/>
-            Age:<input type="text" name="age"/>
+            Age:<form:input path="customer.cage"/>
+            
             <br/>
-            Date of order:<input type="date" name="order_date" />
+            Date of order:<form:input path="orderDate" type="date"/>
+            
             <br/>
             <input type="submit" value="Submit"/>
-            
-        </form>
+
+        </form:form>
     </body>
 </html>

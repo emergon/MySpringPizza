@@ -46,7 +46,7 @@ public class Ingredient implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "iname")
     private String iname;
-    @ManyToMany(mappedBy = "ingredient")
+    @ManyToMany(mappedBy = "ingredients")
     private List<Pizza> pizzas;
 
     public Ingredient() {
