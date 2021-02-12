@@ -42,16 +42,16 @@ public class Pizza implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @JoinTable(name = "pizza_ingredients", joinColumns = {
-        @JoinColumn(name = "pizza_id", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "ingredient_id", referencedColumnName = "id")})
+    @JoinTable(name = "pizza_ingredients", 
+            joinColumns = {@JoinColumn(name = "pizza_id", referencedColumnName = "id")}, 
+            inverseJoinColumns = {@JoinColumn(name = "ingredient_id", referencedColumnName = "id")})
     @ManyToMany
-    private List<Ingredient> ingredientList;
+    private List<Ingredient> ingredients;
     @JoinColumn(name = "size_id", referencedColumnName = "id")
     @ManyToOne
-    private Sizes sizeId;
-    @OneToMany(mappedBy = "pizzaId")
-    private List<Orders> ordersList;
+    private Sizes size;
+    @OneToMany(mappedBy = "pizza")
+    private List<Orders> orders;
 
     public Pizza() {
     }
@@ -69,29 +69,29 @@ public class Pizza implements Serializable {
     }
 
     @XmlTransient
-    public List<Ingredient> getIngredientList() {
-        return ingredientList;
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredientList(List<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
-    public Sizes getSizeId() {
-        return sizeId;
+    public Sizes getSize() {
+        return size;
     }
 
-    public void setSizeId(Sizes sizeId) {
-        this.sizeId = sizeId;
+    public void setSize(Sizes size) {
+        this.size = size;
     }
 
     @XmlTransient
-    public List<Orders> getOrdersList() {
-        return ordersList;
+    public List<Orders> getOrders() {
+        return orders;
     }
 
-    public void setOrdersList(List<Orders> ordersList) {
-        this.ordersList = ordersList;
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 
     @Override

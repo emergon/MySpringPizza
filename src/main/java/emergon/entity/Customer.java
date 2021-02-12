@@ -51,8 +51,8 @@ public class Customer implements Serializable {
     @NotNull
     @Column(name = "cage")
     private int cage;
-    @OneToMany(mappedBy = "customerId")
-    private List<Orders> ordersList;
+    @OneToMany(mappedBy = "customer")
+    private List<Orders> orders;
 
     public Customer() {
     }
@@ -92,12 +92,12 @@ public class Customer implements Serializable {
     }
 
     @XmlTransient
-    public List<Orders> getOrdersList() {
-        return ordersList;
+    public List<Orders> getOrders() {
+        return orders;
     }
 
-    public void setOrdersList(List<Orders> ordersList) {
-        this.ordersList = ordersList;
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 
     @Override

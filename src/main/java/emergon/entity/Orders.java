@@ -46,13 +46,13 @@ public class Orders implements Serializable {
     private LocalDate orderDate;
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @ManyToOne
-    private Customer customerId;
+    private Customer customer;
     @JoinColumn(name = "payment_id", referencedColumnName = "id")
     @ManyToOne
-    private Payment paymentId;
+    private Payment payment;
     @JoinColumn(name = "pizza_id", referencedColumnName = "id")
     @ManyToOne
-    private Pizza pizzaId;
+    private Pizza pizza;
 
     public Orders() {
     }
@@ -77,28 +77,28 @@ public class Orders implements Serializable {
         this.orderDate = orderDate;
     }
 
-    public Customer getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(Customer customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public Payment getPaymentId() {
-        return paymentId;
+    public Payment getPayment() {
+        return payment;
     }
 
-    public void setPaymentId(Payment paymentId) {
-        this.paymentId = paymentId;
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
-    public Pizza getPizzaId() {
-        return pizzaId;
+    public Pizza getPizza() {
+        return pizza;
     }
 
-    public void setPizzaId(Pizza pizzaId) {
-        this.pizzaId = pizzaId;
+    public void setPizza(Pizza pizza) {
+        this.pizza = pizza;
     }
 
     @Override

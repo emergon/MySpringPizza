@@ -46,8 +46,8 @@ public class Sizes implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "sname")
     private String sname;
-    @OneToMany(mappedBy = "sizeId")
-    private List<Pizza> pizzaList;
+    @OneToMany(mappedBy = "size")
+    private List<Pizza> pizzas;
 
     public Sizes() {
     }
@@ -78,12 +78,12 @@ public class Sizes implements Serializable {
     }
 
     @XmlTransient
-    public List<Pizza> getPizzaList() {
-        return pizzaList;
+    public List<Pizza> getPizzas() {
+        return pizzas;
     }
 
-    public void setPizzaList(List<Pizza> pizzaList) {
-        this.pizzaList = pizzaList;
+    public void setPizzas(List<Pizza> pizzas) {
+        this.pizzas = pizzas;
     }
 
     @Override
