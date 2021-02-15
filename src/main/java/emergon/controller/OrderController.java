@@ -10,6 +10,7 @@ import emergon.entity.Orders;
 import emergon.entity.Payment;
 import emergon.entity.Sizes;
 import emergon.service.IngredientService;
+import emergon.service.OrderService;
 import emergon.service.PaymentService;
 import emergon.service.SizeService;
 import java.util.List;
@@ -33,6 +34,8 @@ public class OrderController{
     PaymentService paymentService;
     @Autowired
     IngredientService ingredientService;
+    @Autowired
+    OrderService orderService;
     
     @ModelAttribute("sizes")
     public List<Sizes> getSizes(){
@@ -66,6 +69,7 @@ public class OrderController{
             return "orderForm";
         }
         //save object in DB
+        orderService.save(order);
         return "showOrder";
     }
 }

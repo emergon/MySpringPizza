@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package emergon.service;
+package emergon.repo;
 
 import emergon.entity.Orders;
 
@@ -11,8 +11,9 @@ import emergon.entity.Orders;
  *
  * @author user
  */
-public interface OrderService {
-
+// SOLID principle
+public interface OrderRepo {
+    
     void save(Orders order);
     
 }

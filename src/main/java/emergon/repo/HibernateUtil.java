@@ -29,6 +29,10 @@ public class HibernateUtil<E> {
         return e;
     }
     
+    protected void save(E entity){
+        getSession().saveOrUpdate(entity);
+    }
+    
     //protected List<E> findByNamedQueryDynamic(String namedQuery, Map<String, Object> parameters){
         //for(Entry e : parameters){
         //    query.setParameter(e.key, e.value);
