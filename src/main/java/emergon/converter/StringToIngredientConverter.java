@@ -19,9 +19,9 @@ public class StringToIngredientConverter implements Converter<String, Ingredient
     @Override
     public Ingredient convert(String s) {
         int id = Integer.parseInt(s);
-        System.out.println(">>>>>>>>>Trying to find ingredient with id:"+id);
+        //System.out.println(">>>>>>>>>Trying to find ingredient with id:"+id);
         Ingredient ingredient = service.findById(id);
-        System.out.println(">>>>>>>>>id:"+id+" is the ingredient:"+ingredient.getIname());
+        //System.out.println(">>>>>>>>>id:"+id+" is the ingredient:"+ingredient.getIname());
         return ingredient;
     }
     
