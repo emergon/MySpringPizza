@@ -16,5 +16,7 @@ import java.util.List;
 public interface IngredientRepo {
     
     List<Ingredient> findAll();
+
+    public Ingredient findById(int id);
     
 }

@@ -1,5 +1,6 @@
 package emergon.config;
 
+import emergon.converter.StringToIngredientConverter;
 import emergon.converter.StringToPaymentConverter;
 import emergon.converter.StringToSizeConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class MyDispatcherServletConfiguration implements WebMvcConfigurer{
     private StringToSizeConverter stringToSizeConverter;
     @Autowired
     private StringToPaymentConverter stringToPaymentConverter;
+    @Autowired
+    private StringToIngredientConverter stringToIngredientConverter;
     
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
@@ -34,13 +37,14 @@ public class MyDispatcherServletConfiguration implements WebMvcConfigurer{
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(stringToSizeConverter);
         registry.addConverter(stringToPaymentConverter);
+        registry.addConverter(stringToIngredientConverter);
     }
     
     
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+        registry.addResourceHandler("/static/**").addResourceLocations("/resource/");
     }
     
     

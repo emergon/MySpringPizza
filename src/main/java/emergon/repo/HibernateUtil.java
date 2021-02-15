@@ -1,6 +1,7 @@
 package emergon.repo;
 
 import java.util.List;
+import java.util.Map;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -27,4 +28,10 @@ public class HibernateUtil<E> {
         E e = (E) query.getSingleResult();
         return e;
     }
+    
+    //protected List<E> findByNamedQueryDynamic(String namedQuery, Map<String, Object> parameters){
+        //for(Entry e : parameters){
+        //    query.setParameter(e.key, e.value);
+        //}
+    //}
 }
