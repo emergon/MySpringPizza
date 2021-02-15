@@ -32,7 +32,7 @@ public class OrderController{
     SizeService sizeService;
     @Autowired
     PaymentService paymentService;
-    @Autowired
+    @Autowired 
     IngredientService ingredientService;
     @Autowired
     OrderService orderService;
